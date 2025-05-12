@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import javax.swing.SwingUtilities;
+
 
 public class BlockChain {
 
@@ -6,8 +8,11 @@ public class BlockChain {
         public static int difficulty = 5;
 
         public static void main(String[] args) {
-            // add our blocks to the blockchain ArrayList:
+            
+              SwingUtilities.invokeLater(() -> new Gui());
 
+
+            // add our blocks to the blockchain ArrayList:
             blockchain.add(new Block("The genesis block.", "0"));
             System.out.println("Trying to Mine the genesis block... ");
             blockchain.get(0).mineBlock(difficulty);
@@ -23,6 +28,7 @@ public class BlockChain {
             System.out.println("\nBlockchain is Valid: " + isChainValid());
 
             System.out.println("\nThe block chain: ");
+        
         }
 
         public static Boolean isChainValid() {
